@@ -1,0 +1,93 @@
+.custom-card {
+	user-select: none;
+    box-shadow: 0px 8px 9px #6767674d;
+    border-radius: 10px;
+    color: #282828;
+    border: 3px solid #000;
+    background: transparent;
+    transition: all .5s ease;
+	background: #ffffffa6;
+}
+
+.custom-btn {
+    border-radius: 10px;
+	padding: .3rem .7rem;
+    background-color: transparent;
+    color: #282828;
+    font-weight: 600;
+    border: 2px solid #282828;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-btn:not(.btn-solid):hover {
+	transform: scale(1.05);
+	color: #000;
+	background: #fffa;
+}
+
+.btn-solid {
+	background-color: #484848;
+	color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-solid:hover {
+	transform: scale(1.05);
+	background-color: #282828;
+}
+
+.custom-card .card-header {
+    border-radius: 10px 10px 0 0;
+	background: #ffffffa6;
+	border-bottom: 2px solid #000 !important;
+}
+
+.custom-card th:first-child {
+	border-top-left-radius: 10px;
+}
+
+.custom-card th:last-child {
+	border-top-right-radius: 10px;
+}
+
+.custom-card th {
+	background: #ffffffa6;
+	border-bottom: 2px solid #000 !important;
+	border-top: unset;
+	padding: .575rem .7rem;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.custom-card th:not(:last-child) {
+	border-right: 1px solid #28282822;
+}
+
+tbody tr:hover .btn.invisible {
+	visibility: visible !important;
+}
+
+.input-group-text, .form-control {
+	border: 1px solid #000;
+}
+
+.input-group-text {
+	color: #282828;
+	border-radius: .5rem 0 0 .5rem;
+}
+
+select {
+	cursor: pointer;
+}
+
+.form-control:not(select) {
+	cursor: text;
+	background: #fffc;
+	border-radius: 0 .5rem .5rem 0;
+	outline: none;
+}
+
+.form-control:focus {
+	outline: none;
+	border: 2px solid #000;
+}

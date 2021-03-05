@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.navbar {
+    border-bottom: solid 6px #39acff;
+    overflow: hidden;
+    background-color: #0689ff;
+    position: fixed;
+    top: 0;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  background:  #39acff;
+  color: white;
+  transition: 0.3s;
+}
+
+.navbar .active{
+    background:  #39acff;
+    color: white;
+    transition: 0.3s;
+}
+ .main{
+     height: 1500px;
+ }

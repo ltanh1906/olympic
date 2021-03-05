@@ -1,0 +1,384 @@
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+.bg{
+	background-image: url(../../images/bg/bg2.jpg);
+	background-repeat: revert;
+	background-size: cover;
+	height: 100%;
+/* 	filter: blur(8px); */ 
+	width: 100%;
+	position: absolute;
+	z-index: -100;
+  }
+  .bg::after{
+	content: "";
+	position: fixed;
+	top: 0; bottom: 0; left: 0; right: 0; 
+	background: hsla(180,0%,50%,0.25);
+	pointer-events: none;
+  }
+  .wrapper{
+	padding: 50px 0px;
+	position: relative;
+	min-height: 100vh;
+  }
+.footer {
+	background: #ffffffb0;
+	padding: .5rem .7rem;
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+	margin-top: 2.5rem;
+}
+
+.bg-light {
+	background-color: unset !important;
+}
+
+body {
+	min-height: 100%;
+  	width: 100%;
+    position: absolute;
+}
+
+li a img {
+	transform: rotateZ(180deg);
+	transition: all 0.3s ease;
+
+}
+
+li:hover a:hover img,
+.navbar .nav-item:hover img {
+	transform: rotateZ(0deg);
+}
+
+* {
+	box-sizing: border-box;
+
+}
+
+a {
+	text-decoration: none !important;
+}
+
+li:hover a:hover img,
+.navbar .nav-item:hover img {
+	transform: rotateZ(0deg);
+}
+
+/* mobile navbar sidebar under lg breakpoint */
+@media (max-width: 992px) {
+	.bg-light {
+		background-color: white !important;
+	}
+
+	.inn-user-menu__nav__avatar-btn:active .inn-user-menu__nav {
+		transform: scaleX(1);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.navbar-collapse {
+
+		flex-basis: 0 !important;
+		flex-grow: 0 !important;
+
+	}
+
+	.navbar-collapse.collapsing .navbar-nav {
+		display: block;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: -45%;
+		transition: all 0.2s ease;
+	}
+
+	.dropdown-toggle::after {
+		content: none !important;
+	}
+
+	.navbar-collapse.show .navbar-nav {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		flex-direction: column;
+		height: auto;
+		width: 45%;
+		transition: left 0.35s ease;
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	}
+}
+
+.icon-btn i,
+.inn-welcome i {
+	font-size: 40px;
+	min-width: 50px;
+}
+
+.icon-btn:hover {
+	background: #dfdfdf;
+	color: #000;
+	transform: scale(1.1);
+}
+
+.icon-btn,
+.inn-welcome {
+	user-select: none;
+	display: inline-flex;
+	line-height: 1;
+	font-size: 28px;
+	min-width: 345px;
+	box-shadow: 0px 8px 9px #6767674d;
+	padding: 15px 25px;
+	border-radius: 10px;
+	color: #282828;
+	border: 3px solid;
+	background: #00000026;
+	transition: all 0.3s ease;
+}
+
+.vl {
+	border: 1px solid;
+	margin: 0px 20px;
+}
+
+.icon-btn span,
+.inn-welcome span {
+	font-weight: 500;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.box-btn {
+	text-align: center;
+	padding: 20px 0px;
+}
+
+@media all and (min-width: 992px) {
+	.button-action {
+		display: flex;
+	}
+
+	.navbar .nav-item .dropdown-menu {
+		display: block;
+		opacity: 0;
+		visibility: hidden;
+		transition: .3s;
+		margin-top: 0;
+	}
+
+	.nav-link {
+		font-weight: bold;
+		text-align: center;
+		transition: all 0.2s ease-out;
+		;
+	}
+
+	.navbar .nav-item:hover .nav-link {
+		color: black;
+	}
+
+	.navbar .dropdown-menu.fade-down {
+		top: 80%;
+		transform: rotateX(-75deg);
+		transform-origin: 0% 0%;
+	}
+
+	.navbar .dropdown-menu.fade-up {
+		top: 180%;
+	}
+
+	.navbar .nav-item:hover .dropdown-menu {
+		transition: .3s;
+		opacity: 1;
+		visibility: visible;
+		top: 100%;
+		transform: rotateX(0deg);
+	}
+
+	.dropdown-toggle::after {
+		content: none !important;
+	}
+}
+
+.nav-item {
+	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.nav-item:hover {
+	background: #ffffff99;
+}
+
+.nav-item:hover .dropdown-content {
+	transition: all 5s ease;
+	display: block;
+}
+
+.inn-user-menu__nav__avatar-btn {
+	position: relative;
+}
+
+.inn-user-menu__nav__avatar-btn__link:hover {
+	color: #fff !important;
+}
+
+.inn-user-menu__nav__avatar-btn__link {
+	transition: .5s;
+	display: block;
+	position: relative;
+	z-index: 2;
+	padding: 0px 0.25rem;
+	font-size: 33px;
+	color: black;
+	line-height: 1.1 !important;
+}
+
+.inn-user-menu__nav__avatar-btn:hover .inn-user-menu__nav {
+	transform: scaleX(1);
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.inn-user-menu__nav {
+	background: hsla(0, 0%, 100%, .75);
+	backdrop-filter: blur(5px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-shadow: 0 15px 30px 5px rgb(0 0 0 / 15%);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: all 0.3s ease-out;
+	animation-delay: 2s;
+	transform: scale3d(.7, .5, 1);
+	transform-origin: top right;
+	z-index: 1;
+	border-radius: .5rem;
+}
+
+.action-menu a {
+	display: block;
+	white-space: nowrap;
+	text-align: left;
+	padding: 3px 1rem;
+	color: rgb(0 0 0 / 71%);
+	transition: all 0.2s ease;
+}
+
+.action-menu:hover a:hover,
+.action-menu:hover .inn-icon {
+	background: #383838;
+	color: #fff;
+}
+
+.inn-user-menu__nav__item__container {
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	line-height: 1.5;
+	font-size: 15px;
+	text-align: center;
+	-webkit-box-align: baseline;
+	align-items: baseline;
+}
+
+.inn-user-menu__nav__portal {
+	position: relative;
+	font-weight: bold;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	background: #383838;
+	padding-left: 1rem;
+	border-radius: .5rem .5rem 0 0;
+	height: 41px;
+}
+
+.action-menu span {
+	margin-left: 5px;
+}
+
+.action-menu {
+	padding: .5rem 0;
+	transition: all 0.2s ease;
+}
+
+.action-menu:hover {
+	box-shadow: inset 0px 11px 8px -10px #89c4ff;
+}
+
+.inn-icon {
+	background: rgba(0, 0, 0, .5);
+	color: #fff;
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	font-size: 20px;
+	line-height: 2rem;
+	transition: all 0.2s ease;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+
+.text p {
+	font-weight: 500;
+	font-size: 13px;
+}
+
+.navbar {
+	padding: 0rem 1rem !important;
+	background-color: #ffffffa6 !important;
+	box-shadow: 0px 8px 9px #6767674d;
+}
+
+.navbar .container-fluid {
+	display: contents !important;
+}
+
+.dropdown-menu {
+	background: #ffffff91 !important;
+	border: unset;
+	border-radius: unset;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 0px 8px 9px #6767674d;
+}
+
+.dropdown-item {
+	transition: all 0.3s ease;
+}
+
+.dropdown-item:last-child {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.inn-welcome {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid !important;
+	border-radius: 5px !important;
+	min-height: 270px;
+	margin-bottom: 30px;
+}
+
+.inn-welcome span {
+	font-size: 50px;
+}
