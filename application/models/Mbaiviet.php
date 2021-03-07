@@ -9,6 +9,6 @@ class Mbaiviet extends MY_Model{
     
     public function joindb()
     {
-        $this->db->join('tbl_loaitin AS loaitin', 'tbl_baiviet.sIDLoaiTin = loaitin.sIDLoaiTin', 'left');
+        $this->db->join('tbl_loaitin AS loaitin', 'tbl_baiviet.FK_sIDLoaiTin = loaitin.sIDLoaiTin', 'left');
     }
 }

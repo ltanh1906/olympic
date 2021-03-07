@@ -18,7 +18,7 @@
             $this->load->model('Mloaitin');
             $input = array();
             $loaitin = $this->Mloaitin->get_list($input);
-
+            
 
             //load thư viện phân trang
             $this->load->library('pagination');
@@ -42,13 +42,7 @@
             $input['limit'] = array($config['per_page'] , $segment);
 
             /////////////////////////////////
-            $this->Mbaiviet->joindb();
-            $id = $this->input->get('id');
-            $id = intval($id);
-            $input['where'] = array();
-            if($id > 0){
-                $input['where']['sIDBaiviet'] = $id;
-            }
+            
             
             //lọc theo tên
             $tieude = $this->input->get('tieude');
@@ -57,12 +51,12 @@
             }
             //lọc theo catalog
             $id_loaitin = $this->input->get('loaitin');
-            $id_loaitin = intval($id_loaitin);
             if($id_loaitin){
-                $input['where']['sIDLoaiTin'] = $id_loaitin;
+                $input['where']['FK_sIDLoaiTin '] = $id_loaitin;
             }
-
+            
             //lấy danh sách
+            $this->Mbaiviet->joindb();
             $list = $this->Mbaiviet->get_list($input);
             $page = $this->pagination->create_links();
     
@@ -137,7 +131,7 @@
                     //lưu dữ liệu
                     $data = array(
                         'sHinhAnhMinhHoa' => $image_link,
-                        'sIDLoaiTin'      => $id_loaitin,
+                        'FK_sIDLoaiTin '      => $id_loaitin,
                         'sTieuDe'         => $tieude,
                         'tNoiDung'        => $noidung,
                         'tTomTat'         => $tomtat,
@@ -214,7 +208,7 @@
                     }
 
                     $data = array(
-                        'sIDLoaiTin'      => $id_loaitin,
+                        'FK_sIDLoaiTin '      => $id_loaitin,
                         'sTieuDe'         => $tieude,
                         'tNoiDung'        => $noidung,
                         'tTomTat'         => $tomtat,

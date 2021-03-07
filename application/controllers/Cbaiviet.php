@@ -9,7 +9,7 @@ class Cbaiviet extends CI_Controller{
             $this->load->model('Mbaiviet');
             $input = array();
             $input['limit'] = array(1, 0);
-            $input['where']['sIDLoaiTin'] = 7;
+            $input['where']['FK_sIDLoaiTin '] = 7;
             $thongbao = $this->Mbaiviet->get_list($input);
 
             $this->Mbaiviet->joindb();
@@ -19,10 +19,10 @@ class Cbaiviet extends CI_Controller{
             
             $input = array();
             $input['limit'] = array(3, 0);
-            $input['where']['sIDLoaiTin'] = $baiviet->sIDLoaiTin;
+            $input['where']['FK_sIDLoaiTin '] = $baiviet->FK_sIDLoaiTin ;
             $relate = $this->Mbaiviet->get_list($input);
 
-            $link_dm = $baiviet->sIDLoaiTin;
+            $link_dm = $baiviet->FK_sIDLoaiTin ;
             switch($link_dm){
                 case 1: $link_dm = 'gioithieu'; break;
                 case 2: $link_dm = 'thongbao'; break;
