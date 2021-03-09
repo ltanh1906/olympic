@@ -292,6 +292,42 @@
             
             $this->load->view('layout/Vlayout', $data);
         }
+        public function danhsach()
+        {
+            $page = array(
+                'title' => 'Tổ chức'
+            );
+            
+            $this->load->model('Mbaiviet');
+            $input = array();
+            $input['limit'] = array(1, 0);
+            $input['where']['FK_sIDLoaiTin '] = 7;
+            $thongbao = $this->Mbaiviet->get_list($input);
+
+            $input = array();
+            $input['where']['FK_sIDLoaiTin '] = 8;
+            $list = $this->Mbaiviet->get_list($input);
+
+            $dLeft = array(
+                'thongbao'  => $thongbao,
+                'list'   => $list,
+                'img_title' => 't-danhsach.png',
+            );
+
+
+            $messages = array(
+                'messages'	=> $this->session->flashdata('messages'),
+            );
+            $data = array(
+                'left'      => 'site/Vdanhmuc',
+                'right'     => 'site/Vright',
+                'dLeft'     => $dLeft,
+                'page'      => $page,
+            );
+            $data['messages'] = $messages;
+            
+            $this->load->view('layout/Vlayout', $data);
+        }
 
         
 

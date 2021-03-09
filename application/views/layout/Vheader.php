@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8" />
     <title>
-        HOU-Olympic
+        Olympic |Trường Đại học Mở Hà Nội
     </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{public_url()}site/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{public_url()}site/style.css">
+    <link rel="shortcut icon" href="{public_url()}site/img/logotruong.png" />
     
     <script type="text/javascript" src="{public_url()}site/js/jquery-1.10.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
