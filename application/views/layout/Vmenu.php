@@ -22,7 +22,7 @@
                     <li class="btn_menu"><a href="{base_url('Chome/ontap')}">Ôn tập</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/video')}">Video</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/dvdangcai')}">Đơn vị đăng cai</a></li>
-                    <li class="btn_menu"><a href="{base_url('Clist')}">Danh sách</a></li>
+                    <li class="btn_menu"><a href="">Danh sách</a></li>
                     <li class="btn_menu"><a href="{base_url('Cform')}">Đăng kí</a></li>
 
                 </ul>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="text"><p>Hồ sơ</p></div>
                                     <a href="{base_url('Cform')}"><i class="fa fa-plus" aria-hidden="true"></i><span>Thêm</span></a>
-                                    <a href="{base_url('Clist/list')}"><i class="fa fa-exchange" aria-hidden="true"></i><span>Danh sách</span></a>
+                                    <a href="{base_url('Clist')}"><i class="fa fa-exchange" aria-hidden="true"></i><span>Danh sách</span></a>
                                     </div>
                                     
                                     <div class="action-menu">
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <div class="text"><p>Tài khoản</p></div>
-                                    <a href=""><i class="fa fa-key" aria-hidden="true"></i><span>Đổi mật khẩu</span></a>
+                                    <a href="{base_url('Clogin/changepass')}"><i class="fa fa-key" aria-hidden="true"></i><span>Đổi mật khẩu</span></a>
                                     <a href="{base_url('Clogin/logout')}"><i class="fa fa-power-off" aria-hidden="true"></i><span>Đăng xuất</span></a>
                                     </div>
                                 </div>     

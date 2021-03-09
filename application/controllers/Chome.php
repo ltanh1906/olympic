@@ -275,7 +275,7 @@
             $input['where']['Type'] = 'video';
             $listvid = $this->Mimg->get_list($input);
             $dLeft = array(
-                'img_title' => 't-dangcai.png',
+                'img_title' => 't-video.png',
                 'listvid'   => $listvid,
             );
 
