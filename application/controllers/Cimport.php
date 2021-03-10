@@ -1,6 +1,5 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
-    include 'F:\Xampp\htdocs\olympic\application\vendor\autoload.php';
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
     use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     use PhpOffice\PhpSpreadsheet\Helper\Sample;
@@ -25,7 +24,7 @@
                         $file_array = explode(".", $_FILES['file']['name']);
                         $file_extension = end($file_array);
                         if(in_array($file_extension, $allowed_extension)){
-                            $reader = IOFactory::createReader('Xlsx');
+                            $reader = ($file_extension == 'xlsx')?IOFactory::createReader('Xlsx'):IOFactory::createReader('Xls');
                             $spreadsheet = $reader->load($_FILES['file']['tmp_name']);
                             $writer = IOFactory::createWriter($spreadsheet, 'Html');
                             $message = $writer->save('php://output');
@@ -45,7 +44,7 @@
         public function import()
         {
             $this->load->model('Mthisinh');
-            if($this->input->post()){ // kiem tra ajax yeu cau server
+            if($this->input->post()){ 
                 if(isset($_FILES["file"])){
                     $allowed_extension = array('xls', 'xlsx');
                     $file_array = explode(".", $_FILES["file"]["name"]);
@@ -60,7 +59,7 @@
                         $data = $spreadsheet->getActiveSheet()->toArray();
                         $user = $this->session->userdata('user');
                         $numRow = 1;
-                        
+                        $today = date("d/m/Y");
                         foreach($data as $row)
                         {  
                             if($numRow >6){
@@ -70,7 +69,7 @@
                                 }
                                 $thisinh = array(
                                     'sMaSinhVien' => $row[7],
-                                    'FK_sMaKhoa'      => $user->sMaKhoa,
+                                    'FK_sMaKhoa'      => ($user->sMaKhoa != 13)?$user->sMaKhoa:$this->input->post('khoa'),
                                     'sMaMon'         => $row[8],
                                     'sHoTenDem'        => $ten['hodem'],
                                     'sTen'         => $ten['ten'],
@@ -81,6 +80,7 @@
                                     'sEmail'        => $row[4],
                                     'sGhiChu'         => $row[9],
                                     'sTruong'       => 'ĐH Mở Hà Nội',
+                                    'sNamThi'   => substr($today,6,4)
                                 );
                                 if($thisinh['sTen'] != ''){
                                 $this->Mthisinh->create($thisinh);
