@@ -137,9 +137,10 @@ class Clist extends CI_Controller{
             "F9" => "Khoa",
             "G9" => "Trường",
             "H9" => "Ghi chú",
+            "I9" => "Môn thi",
         );
         $sheet->getStyle("A9:H9")->getAlignment()->setWrapText(true);
-        $array_bold1 = array('A9','B9','C9','D9','E9','F9','G9','H9');
+        $array_bold1 = array('A9','B9','C9','D9','E9','F9','G9','H9','I9');
         foreach($array_bold1 as $cell){
             $sheet->getStyle($cell)->getFont()->setBold(true);
         }
@@ -179,7 +180,7 @@ class Clist extends CI_Controller{
                 ],
             ],
         ];
-        $sheet->getStyle('A9:H9')->applyFromArray($styleThinBlackBorderOutline);
+        $sheet->getStyle('A9:I9')->applyFromArray($styleThinBlackBorderOutline);
         $start = 10;
         foreach($ds AS  $key => $khoa){
             foreach ($khoa as $k => $sv){
@@ -191,6 +192,9 @@ class Clist extends CI_Controller{
                 $array_content['F'.$numRow] = $sv['sTenKhoa'];
         		$array_content['G'.$numRow] = $sv['sTruong'];
                 $array_content['H'.$numRow] = $sv['sGhiChu'];
+                if($mon == 'tatca'){
+                    $array_content['I'.$numRow] = $sv['sTenMon'];
+                }
                 $canngang= array('A'.$numRow,'B'.$numRow,'E'.$numRow,'H'.$numRow);
                 foreach($canngang as $cell){
                     $sheet->getStyle($cell)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -206,7 +210,7 @@ class Clist extends CI_Controller{
             $start = $numRow;
         }
 
-        $array_border = array('A','B','E','F','G','H');
+        $array_border = array('A','B','E','F','G','H','I');
         foreach($array_border as $cell){
             $sheet->getStyle($cell.'9:'.$cell.($numRow-1))->applyFromArray($styleThinBlackBorderOutline);
         }

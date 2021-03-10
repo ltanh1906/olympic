@@ -171,7 +171,8 @@
                                         </div>
                                     </div>
                                     {if $t->FK_sMaKhoa != 14}
-                                    <input name="truong" value="ĐH Mở Hà Nội">
+                                    <input style="    opacity: 0;
+    position: absolute;" name="truong" value="ĐH Mở Hà Nội">
                                     <div class="form-group gioitinh">
                                     <div class="">
                                         <label><b>Ghi chú:</b></label>
