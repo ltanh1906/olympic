@@ -75,7 +75,9 @@ button:focus{
                             <div class="" id="nhap">
                                 <div class="form-group">
                                 <form action="{base_url('Cimport/import')}" id="form_dangky" method="post" enctype="multipart/form-data">
-                                    <input type="file" class="form-control" id="file" name="file" value=""><span class="error" id="error-file"></span>
+                                    <input type="file" class="form-control" id="file" name="file" value=""><span class="error" id="error-file">
+                                    <br>
+                                    </span>
                                     <div>
                                     <button type="submit" name="dangky" id="dangky" class="btn btn-primary" disabled="disabled" value="dangky"><i class="fas fa-file-upload"></i> Đăng ký</button>
                                     </div>

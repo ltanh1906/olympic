@@ -81,7 +81,7 @@ Class Upload_library
         //Định dạng file được phép tải
         $config['allowed_types'] = 'jpg|png|gif|pdf';
         //Dung lượng tối đa
-        $config['max_size']      = '120000';
+        $config['max_size']      = '1200000';
         //Chiều rộng tối đa
         $config['max_width']     = '10280';
         //Chiều cao tối đa

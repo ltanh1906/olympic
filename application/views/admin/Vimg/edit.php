@@ -43,7 +43,7 @@
 </div>
 			<div class="formRow">
 			<div class="form-group">
-				<label for="name">Name</label>
+				<label for="name">Tiêu đề</label>
 				<input type="text" class="form-control" name="tieude" value="{$tn->sMoTa}" >
 				<div name="name_error" class="clear error">{form_error('tieude')}</div>
 			</div>

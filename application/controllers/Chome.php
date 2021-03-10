@@ -56,7 +56,6 @@
             $messages = array(
                 'messages'	=> $this->session->flashdata('messages'),
             );
-            setToast('info', 'Đã đăng xuất');
             $data = array(
                 'left'      => 'site/Vleft',
                 'slide'     => 'site/Vslide',
