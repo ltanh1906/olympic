@@ -14,6 +14,8 @@
 
             $this->load->model('Mimg');
             $this->load->model('Mbaiviet');
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
 
             $input = array();
             $input['limit'] = array(1, 0);
@@ -39,6 +41,7 @@
             
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'gioithieu' => $gioithieu,
                 'ontap'     => $ontap,
                 'anh'       => $album,
@@ -56,7 +59,6 @@
             $messages = array(
                 'messages'	=> $this->session->flashdata('messages'),
             );
-            setToast('info', 'Đã đăng xuất');
             $data = array(
                 'left'      => 'site/Vleft',
                 'slide'     => 'site/Vslide',
@@ -79,7 +81,9 @@
             $page = array(
                 'title' => 'Thông báo'
             );
-            
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
+
             $this->load->model('Mbaiviet');
             $input = array();
             $input['limit'] = array(1, 0);
@@ -92,6 +96,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 'tittle11.png',
             );
@@ -118,6 +123,9 @@
                 'title' => 'Giới thiệu'
             );
             
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
+
             $this->load->model('Mbaiviet');
             $input = array();
             $input['limit'] = array(1, 0);
@@ -130,6 +138,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 't-gioithieu.png',
             );
@@ -154,6 +163,8 @@
             $page = array(
                 'title' => 'Tổ chức'
             );
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
             
             $this->load->model('Mbaiviet');
             $input = array();
@@ -167,6 +178,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 't-tochuc.png',
             );
@@ -191,6 +203,8 @@
             $page = array(
                 'title' => 'Ôn tập'
             );
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
             
             $this->load->model('Mbaiviet');
             $input = array();
@@ -204,6 +218,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 't-ontap.png',
             );
@@ -228,7 +243,8 @@
             $page = array(
                 'title' => 'Đơn vị đăng cai'
             );
-            
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
             $this->load->model('Mbaiviet');
             $input = array();
             $input['limit'] = array(1, 0);
@@ -241,6 +257,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 't-dangcai.png',
             );
@@ -297,7 +314,8 @@
             $page = array(
                 'title' => 'Tổ chức'
             );
-            
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
             $this->load->model('Mbaiviet');
             $input = array();
             $input['limit'] = array(1, 0);
@@ -310,6 +328,7 @@
 
             $dLeft = array(
                 'thongbao'  => $thongbao,
+                'timeline'  => $timeline,
                 'list'   => $list,
                 'img_title' => 't-danhsach.png',
             );

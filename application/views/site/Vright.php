@@ -38,25 +38,27 @@
                             </div>
                                 
                             <div class="r_tieude">
-                                <a href="">Vòng loại: 20-02-2021</a>
+                                <a href="">{$timeline[0]['sTenVongThi']} : {date('d-m-Y', $timeline[0]['sThoiGian'])}</a>
                             </div>
                         </div>
-                        <div class="tintuc1 row">
-                            <div class="timeline_icon">
-                            <i class="fa fa-trophy" aria-hidden="true"></i>
-                            </div>
-                                
-                            <div class="r_tieude">
-                                <a href="">Chung kết: 20-02-2021</a>
-                            </div>
-                        </div>
+                        
                         <div class="tintuc1 row">
                             <div class="timeline_icon">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                             </div>
                                 
                             <div class="r_tieude">
-                                <a href="">Bán kết: 20-02-2021</a>
+                                <a href="">{$timeline[1]['sTenVongThi']} : {date('d-m-Y', $timeline[1]['sThoiGian'])}</a>
+                            </div>
+                        </div>
+
+                        <div class="tintuc1 row">
+                            <div class="timeline_icon">
+                            <i class="fa fa-trophy" aria-hidden="true"></i>
+                            </div>
+                                
+                            <div class="r_tieude">
+                                <a href="">{$timeline[2]['sTenVongThi']} : {date('d-m-Y', $timeline[2]['sThoiGian'])}</a>
                             </div>
                         </div>
                     </div>

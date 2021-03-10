@@ -13,10 +13,10 @@
 					<span><i class="far fa-file-alt"></i> Bài viết</span>
 				</a></li>
 				<li><a href="{admin_url('Cimg')}" >
-					<span><i class="far fa-images"></i> Ảnh</span>
+					<span><i class="far fa-images"></i> Ảnh,video</span>
 				</a></li>
-				<li><a class="active" id="current" href="" >
-					<span><i class="fas fa-volume-up"></i> Thông báo</span>
+				<li><a class="active" id="current" href="{admin_url('Ctimeline')}" >
+					<span><i class="fas fa-volume-up"></i> Timeline</span>
 				</a></li>
 				<li><a class="active" id="current" href="{admin_url('Caccount')}" >
 					<span><i class="fas fa-user"></i> Accounts</span>
