@@ -49,7 +49,7 @@ button:focus{
   border-top: none;
 }
 </style>
-<div class="table-title">
+<!-- <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <h2 style="font-size: 22px !important;" class="text-center"><b>Danh Sách Sinh Viên Đăng Kí</b></h2>
@@ -88,7 +88,7 @@ button:focus{
     margin-top: -54px;"
                                 href="{base_url('Cimport/filemau')}" class="btn btn-success"><i class="fas fa-file-download"></i> Tải file mẫu</a>
                             </div>
-                        </div>  
+                        </div>   -->
 <!-- <div class=" d-flex justify-content-between">
             
             </div>
@@ -100,14 +100,29 @@ button:focus{
     
 </div> -->
 
-
-
 <div class="tab">
-  <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">Table</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Preview</button>
+  <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">Danh sách thí sinh</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Đăng ký</button>
 </div>
 
 <div id="London" class="tabcontent">
+<form action="" method="post">
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <label for="mon">Môn</label>
+            <select name="mon" id="mon" class="form-control">
+                    <option value="tatca">Tất cả</option>
+                {foreach $MonThi as $mt}
+                    <option value="{$mt.sMaMon}">{$mt.sTenMon}</option>
+                {/foreach}
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn-success btn" style="margin-top: 5px;" name="xuatexcel" value="xuatexcel">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i> | Xuất Excel
+        </button>
+    </div>
+</form>
 <table id="table_id" class="display">
     <thead>
         <tr>
@@ -156,14 +171,40 @@ button:focus{
 </div>
 
 <div id="Paris" class="tabcontent">
+    <form action="{base_url('Cimport/import')}" id="form_dangky" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-sm-6">
+            {if ($MaKhoa==13)} 
+                <div class="form-group">
+                    <select name="khoa" id="khoa" class="form-control">
+                        {foreach $listkhoa as $khoa}
+                            <option value="{$khoa.sMaKhoa}">{$khoa.sTenKhoa}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            {/if}
+                <div class="form-group">
+                    <input type="file" class="form-control" id="file" name="file" value=""><span class="error" id="error-file"></span>
+                </div>
+            </div>
+            
+            <div class="col-sm-6">
+                <button style="border: none; background: none;" class="add-btn btn" id="dangky" disabled="disabled" value="dangky" type="submit" name="dangky">
+                    <div class="hint-text"><i class="fa fa-plus" aria-hidden="true"></i> | Đăng ký</div>
+                </button>
+                <a href="{base_url('Cimport/filemau')}" class="import-btn">
+                    <div class="hint-text"><i class="fa fa-file-excel-o" aria-hidden="true"></i> | File mẫu</div>
+                </a>
+            </div>
+        </div>
+    </form>
     <div id="excel_area"></div>
 </div>
 
 
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Xác nhận Xóa ?</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -207,6 +248,8 @@ button:focus{
                                 $('#excel_area').html(data);
                                 $('#excel_area').attr('class','table-responsive');
                                 $('table').css('width','100%');
+                                $('#excel_area meta, #excel_area title').remove();
+                                $('#excel_area style').last().remove();
                             }
                         })
                     }
@@ -232,8 +275,6 @@ button:focus{
             $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
         });
     </script>
-
-
 
 <script>
 document.getElementById("defaultOpen").click();
