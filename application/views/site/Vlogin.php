@@ -2,7 +2,7 @@
     <div class="inn-login">
             <div class="">
                 <div class="login-header">
-                    <i class="fa fa-address-card" style="font-size: 70px;" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-address-card" style="font-size: 70px;" aria-hidden="true"></i> -->
                     <h1 style="font-weight: bold;">ĐĂNG NHẬP</h1>
                 </div>
             </div>

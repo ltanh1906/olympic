@@ -20,10 +20,10 @@
                     <li class="btn_menu"><a href="{base_url('Chome/thongbao')}">Thông báo</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/tochuc')}">Tổ chức</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/ontap')}">Ôn tập</a></li>
-                    <li class="btn_menu"><a href="{base_url('Chome/video')}">Video</a></li>
+                    <li class="btn_menu"><a href="{base_url('Chome/album')}">Album</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/dvdangcai')}">Đơn vị đăng cai</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/danhsach')}">Danh sách</a></li>
-                    <li class="btn_menu"><a href="{base_url('Cform')}">Đăng kí</a></li>
+                    <li class="btn_menu"><a href="{base_url('Cform')}">Đăng ký</a></li>
 
                 </ul>
             </div>      

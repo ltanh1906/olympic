@@ -24,8 +24,7 @@ class Clist extends CI_Controller{
                 $list = $this->Mthisinh->getdata($makhoa);
             }
             else{     
-                $this->Mthisinh->joindb();
-                $list = $this->Mthisinh->get_list();
+                $list = $this->Mthisinh->list();
             }
         }
         else{
@@ -242,3 +241,5 @@ class Clist extends CI_Controller{
         $writer->save('php://output');
     }
 }
+
+

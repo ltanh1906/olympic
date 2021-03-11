@@ -12,7 +12,8 @@ class Clogin extends CI_Controller{
         );
         $session = getSession();
         if(isset($session)){
-            redirect(base_url('Chome'));
+            // redirect(base_url('Chome'));
+            redirect(base_url('Clist'));
         }
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -23,7 +24,8 @@ class Clogin extends CI_Controller{
                 $user = $this->_get_user_info();
                 $this->session->set_userdata('user', $user);
                 setToast('success', 'Đăng nhập thành công');
-                redirect(base_url('Chome'));
+                // redirect(base_url('Chome'));
+                redirect(base_url('Clist'));
             }
             else{
                 setToast('error', 'Sai tên đăng nhập hoặc mật khẩu');
@@ -89,7 +91,7 @@ class Clogin extends CI_Controller{
         $this->load->library('form_validation');
         $this->load->helper('form');
         if($this->input->post()){
-            
+
             $this->form_validation->set_rules('new', 'Mật khẩu mới', 'required');
             $this->form_validation->set_rules('renew', 'Nhập lại mật khẩu mới', 'required|matches[new]');
             if($this->form_validation->run())
@@ -125,7 +127,42 @@ class Clogin extends CI_Controller{
         $data['messages'] = $messages;
         
         $this->load->view('layout/Vlayout', $data);
-    }
+        
+        // $acc = $this->session->userdata("user")['username'];
+        // $oldpass = sha1($this->input->post("oldPass"));
+        // $newpass = sha1($this->input->post("newPass"));
+        // $repass = sha1($this->input->post("rePass"));
+        // $taikhoan = array(
+        //     'sIDTaiKhoan' 	=> $acc,
+        //     'sMatKhau'		=> $oldpass
+        // );
+        // $checkPass = $this->Mdoimatkhau->checkPass($taikhoan);
+        // if(!$checkPass){
+        //     echo "Mật khẩu cũ không chính xác";
+        //     return;
+        // }
+        // $this->Mdoimatkhau->changePass($newpass, $acc);
+        // $session = $this->session->userdata("user");
+        // // $session['trangthai'] = "Đã kích hoạt";
+        // $this->session->set_userdata('user', $session);
+        // echo "Đổi mật khẩu thành công";
 
+        //     $page = array(
+        //         'title' => 'Đổi mật khẩu',
+        //     );
+        //     $dLeft = array(
+        //     );
     
+        //     $messages = array(
+        //         'messages'	=> $this->session->flashdata('messages'),
+        //     );
+        //     $data = array(
+        //         'left'      => 'site/VchangePassword',
+        //         'dLeft'     => $dLeft,
+        //         'page'      => $page,
+        //     );
+        //     $data['messages'] = $messages;
+            
+        //     $this->load->view('layout/Vlayout', $data);
+    }
 }

@@ -22,6 +22,7 @@ class Mthisinh extends MY_Model{
 	{
         $this->db->join('tbl_khoa AS khoa', 'tbl_thisinh.FK_sMaKhoa = khoa.sMaKhoa', 'left');
         $this->db->join('tbl_monthi AS monthi', 'tbl_thisinh.sMaMon = monthi.sMaMon', 'left');
+
 	}
 
     public function getdata($makhoa)
@@ -30,8 +31,21 @@ class Mthisinh extends MY_Model{
             $this->db->select('*');
             $this->db->join('tbl_khoa AS khoa', 'tbl_thisinh.FK_sMaKhoa = khoa.sMaKhoa', 'left');
             $this->db->join('tbl_monthi AS monthi', 'tbl_thisinh.sMaMon = monthi.sMaMon', 'left');
-            $this->db->from('tbl_thisinh');
         
             return $this->db->get()->result_array();
         }
+    public function list(){
+        $this->db->select("*")
+                    -> from('tbl_thisinh')
+					->join("tbl_monthi", "tbl_monthi.sMaMon = tbl_thisinh.sMaMon")
+                    ->order_by('sTruong asc, tbl_thisinh.sMaMon desc, sGhiChu asc, sTen asc');
+        $result = $this->db->get();
+        if($result->num_rows()!=0){
+            return $result->result_array();
+        }else{
+            return false;
+        }
+
+    }
+
 }

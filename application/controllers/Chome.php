@@ -33,20 +33,18 @@
             $input['limit'] = array(4, 0);
             $input['where']['FK_sIDLoaiTin '] = 4;
             $ontap = $this->Mbaiviet->get_list($input);
-
+            
             $input = array();
             $input['limit'] = array(13, 0);
-            $input['where']['type'] = 'album';
-            $album = $this->Mimg->get_list($input);
+            $input['where']['type'] = 'video';
+            $listvid = $this->Mimg->get_list($input);
             
             $dLeft = array(
                 'thongbao'  => $thongbao,
-                'timeline'  => $timeline,
                 'gioithieu' => $gioithieu,
                 'ontap'     => $ontap,
-                'anh'       => $album,
+                'listvid'   => $listvid,
                 'dangcai'   => $dangcai,
-                'album'     => $album,
             );
 
 
@@ -63,7 +61,7 @@
                 'left'      => 'site/Vleft',
                 'slide'     => 'site/Vslide',
                 'right'     => 'site/Vright',
-                'album'     => 'site/Valbum',
+                'album'     => 'site/Vvideo',
                 'dLeft'     => $dLeft,
                 'page'      => $page,
                 'carousel'  => $carousel,
@@ -277,9 +275,9 @@
             $this->load->view('layout/Vlayout', $data);
         }
 
-        function video(){
+        function album(){
             $page = array(
-                'title' => 'Video'
+                'title' => 'Album'
             );
             
             $this->load->model('Mimg');
@@ -289,11 +287,12 @@
             // $thongbao = $this->Mbaiviet->get_list($input);
 
             $input = array();
-            $input['where']['Type'] = 'video';
-            $listvid = $this->Mimg->get_list($input);
+            $input['where']['Type'] = 'album';
+            // $listvid = $this->Mimg->get_list($input);
+            $anh= $this->Mimg->get_list($input);
             $dLeft = array(
-                'img_title' => 't-video.png',
-                'listvid'   => $listvid,
+                'img_title' => 't-album.png',
+                'anh'   => $anh,
             );
 
 
@@ -301,7 +300,7 @@
                 'messages'	=> $this->session->flashdata('messages'),
             );
             $data = array(
-                'left'      => 'site/Vvideo',
+                'left'      => 'site/Valbum',
                 'dLeft'     => $dLeft,
                 'page'      => $page,
             );

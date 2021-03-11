@@ -48,6 +48,9 @@ button:focus{
   border: 1px solid #ccc;
   border-top: none;
 }
+.display thead tr th{
+    text-align: center;
+}
 </style>
 <!-- <div class="table-title">
                             <div class="row">
@@ -140,9 +143,9 @@ button:focus{
     <tbody>
         {foreach $list as $stt => $r}
         <tr>
-            <td>{$stt+1}</td>
+            <td style="text-align: center">{$stt+1}</td>
             <td>{$r.sHoTenDem} {$r.sTen}</td>
-            <td>{$r.sGioiTinh}</td>
+            <td style="text-align: center">{$r.sGioiTinh}</td>
             <td>{$r.sTruong}</td>
             {if $r.FK_sMaKhoa == 14}
                 <td>{$r.sKhoa}</td>
@@ -150,8 +153,8 @@ button:focus{
                 <td>{$r.sTenKhoa}</td>
             {/if}
             <td>{$r.sMaSinhVien}</td>
-            <td>{$r.sTenMon}</td>
-            <td>{$r.sGhiChu}</td>
+            <td style="text-align: center">{$r.sTenMon}</td>
+            <td style="text-align: center">{$r.sGhiChu}</td>
             <td style="text-align: center">
                 <a class="tipS" title="Chỉnh sửa" style="margin-right: 10px;" href="{base_url('Cform/edit/')}{$r.sIdThisinh}" >
                     <i class="fa fa-pencil-square-o" style="font-size: 24px; color: #226ad6;" aria-hidden="true"></i>
