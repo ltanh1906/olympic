@@ -20,4 +20,17 @@ class Maccount extends MY_Model{
         $id = $result->sIDTaiKhoan;
         return ++$id;
     }
+
+	public function changePassword($data){
+		$this->db->set('sMatKhau', $data['newPass']);
+		$this->db->where('sIDTaiKhoan', $data['idAccount']);
+		$this->db->where('sMatKhau', $data['currentPassword']);
+		$this->db->update('tbl_taikhoan');
+		$result = $this->db->affected_rows();
+		if($result == 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
