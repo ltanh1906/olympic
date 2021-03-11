@@ -128,7 +128,7 @@
             "A4" => "Khoa: ",
             "A5" => "Số thí sinh: ",
             "C4" => "*Lưu ý:",
-            "D4" => "- Thí sinh thi môn Tiếng Anh ghi 0 ở cột môn thi",
+            "D4" => "- Thí sinh thi môn Tiếng Anh ghi 2 ở cột môn thi",
             "D5" => "- Thí sinh thi môn Tin Học ghi 1 ở cột môn thi",
             "A7" => "STT",
             "B7" => "Họ và tên",
