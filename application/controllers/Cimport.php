@@ -60,6 +60,8 @@
                         $user = $this->session->userdata('user');
                         $numRow = 1;
                         $today = date("d/m/Y");
+			$makhoa  = ($user->sMaKhoa != 13)?$user->sMaKhoa:$this->input->post('khoa');
+                        $khoa = $this->getkhoa($makhoa);
                         foreach($data as $row)
                         {  
                             if($numRow >6){
@@ -69,7 +71,7 @@
                                 }
                                 $thisinh = array(
                                     'sMaSinhVien' => $row[7],
-                                    'FK_sMaKhoa'      => ($user->sMaKhoa != 13)?$user->sMaKhoa:$this->input->post('khoa'),
+                                    'FK_sMaKhoa'      => $makhoa,
                                     'sMaMon'         => $row[8],
                                     'sHoTenDem'        => $ten['hodem'],
                                     'sTen'         => $ten['ten'],
@@ -80,6 +82,7 @@
                                     'sEmail'        => $row[4],
                                     'sGhiChu'         => $row[9],
                                     'sTruong'       => 'ĐH Mở Hà Nội',
+				    'sKhoa'         => $khoa['sTenKhoa'],
                                     'sNamThi'   => substr($today,6,4)
                                 );
                                 if($thisinh['sTen'] != ''){
@@ -99,6 +102,12 @@
             else{
                 return redirect('error404');
             }
+        }
+	 public function getkhoa($makhoa)
+        {
+            $this->db->select('sTenKhoa');
+            $this->db->where('sMaKhoa',$makhoa);
+            return $this->db->get('tbl_khoa')->row_array();
         }
 
 //FIle mẫu / Export
