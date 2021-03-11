@@ -61,7 +61,7 @@ class Clist extends CI_Controller{
     {
         $khoa = getSession()->sMaKhoa;
         $today = date("d/m/Y");
-        $sql = "SELECT tbl_thisinh.sMaSinhVien,tbl_thisinh.sHoTenDem,tbl_thisinh.sTen,tbl_thisinh.sGhiChu,tbl_thisinh.sTruong,tbl_monthi.sTenMon,tbl_khoa.sMaKhoa,tbl_khoa.sTenKhoa 
+        $sql = "SELECT tbl_thisinh.sMaSinhVien,tbl_thisinh.sHoTenDem,tbl_thisinh.sTen,tbl_thisinh.sGhiChu,tbl_thisinh.sTruong,tbl_thisinh.sKhoa,tbl_monthi.sTenMon,tbl_khoa.sMaKhoa
         FROM tbl_thisinh, tbl_khoa, tbl_monthi 
         WHERE tbl_thisinh.FK_sMaKhoa = tbl_khoa.sMaKhoa 
         and tbl_thisinh.sMaMon = tbl_monthi.sMaMon
@@ -188,7 +188,7 @@ class Clist extends CI_Controller{
                 $array_content['C'.$numRow] = $sv['sHoTenDem'];
         		$array_content['D'.$numRow] = $sv['sTen'];
                 $array_content['E'.$numRow] = $sv['sMaSinhVien'];
-                $array_content['F'.$numRow] = $sv['sTenKhoa'];
+                $array_content['F'.$numRow] = $sv['sKhoa'];
         		$array_content['G'.$numRow] = $sv['sTruong'];
                 $array_content['H'.$numRow] = $sv['sGhiChu'];
                 $canngang= array('A'.$numRow,'B'.$numRow,'E'.$numRow,'H'.$numRow);
