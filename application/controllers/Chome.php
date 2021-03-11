@@ -16,7 +16,7 @@
             $this->load->model('Mbaiviet');
             $this->load->model('Mtimeline');
             $timeline = $this->Mtimeline->get_list();
-
+            
             $input = array();
             $input['limit'] = array(1, 0);
             $input['where']['FK_sIDLoaiTin '] = 7;
@@ -43,6 +43,7 @@
                 'thongbao'  => $thongbao,
                 'gioithieu' => $gioithieu,
                 'ontap'     => $ontap,
+                'timeline'  => $timeline,
                 'listvid'   => $listvid,
                 'dangcai'   => $dangcai,
             );

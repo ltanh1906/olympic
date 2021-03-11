@@ -46,7 +46,7 @@
 	    <select name="loaitin"  class="left">
 			<option value=""></option>
 			{foreach $loaitin as $row}
-				<option value="{$row.sIDLoaiTin}"{if $row.sIDLoaiTin == $baiviet->sIDLoaiTin}selected{/if}>{$row.sTenLoaiTin}</option>
+				<option value="{$row.sIDLoaiTin}"{if $row.sIDLoaiTin == $baiviet->FK_sIDLoaiTin}selected{/if}>{$row.sTenLoaiTin}</option>
 			{/foreach}
 		</select>
 		<span class="autocheck" name="cat_autocheck"></span>
