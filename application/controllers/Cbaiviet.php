@@ -11,7 +11,8 @@ class Cbaiviet extends CI_Controller{
             $input['limit'] = array(1, 0);
             $input['where']['FK_sIDLoaiTin '] = 7;
             $thongbao = $this->Mbaiviet->get_list($input);
-
+            $this->load->model('Mtimeline');
+            $timeline = $this->Mtimeline->get_list();
             $this->Mbaiviet->joindb();
 
             $idbv = $this->uri->rsegment('3');
@@ -35,6 +36,7 @@ class Cbaiviet extends CI_Controller{
                 'thongbao'  => $thongbao,
                 'baiviet'   => $baiviet,
                 'relate'    => $relate,
+                'timeline'  => $timeline,
                 'link_dm'   => $link_dm,
             );
 
