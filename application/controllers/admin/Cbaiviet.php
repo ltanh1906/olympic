@@ -19,7 +19,6 @@
             $input = array();
             $loaitin = $this->Mloaitin->get_list($input);
             
-
             //load thư viện phân trang
             $this->load->library('pagination');
             //
