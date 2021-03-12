@@ -21,6 +21,7 @@
                     <li class="btn_menu"><a href="{base_url('Chome/tochuc')}">Tổ chức</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/ontap')}">Ôn tập</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/album')}">Album</a></li>
+                    <li class="btn_menu"><a href="https://www.youtube.com/channel/UCzObwWgsS7pUgLQPR-i7UMw">Video</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/dvdangcai')}">Đơn vị đăng cai</a></li>
                     <li class="btn_menu"><a href="{base_url('Chome/danhsach')}">Danh sách</a></li>
                     <li class="btn_menu"><a href="{base_url('Cform')}">Đăng ký</a></li>
