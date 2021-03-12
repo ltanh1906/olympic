@@ -14,11 +14,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\PageSetup;
 class Clist extends CI_Controller{
     function __construct(){
         parent::__construct();
+        $this->load->Model('Mthisinh');
     }
 
     function index()
     {
-        $this->load->Model('Mthisinh');
         $makhoa = getSession()->sMaKhoa;
         if(isset($makhoa)){
             if($makhoa != 13 && $makhoa != 14){
@@ -35,12 +35,13 @@ class Clist extends CI_Controller{
         if($this->input->post('xuatexcel')){
             $this->xuatexcel($this->input->post());
         }
-        
+        $monthi     = $this->Mthisinh->listMon($mon);
+        $listKhoa   = $this->Mthisinh->listKhoa($makhoa);
         $dLeft = array(
-            'MaKhoa'  => getSession()->sMaKhoa,
+            'MaKhoa'  => $makhoa,
             'list'  => $list,
-            'listkhoa' => (getSession()->sMaKhoa == 13)?$this->db->query('SELECT sMaKhoa, sTenKhoa FROM tbl_khoa WHERE not sMaKhoa = 13')->result_array():$this->db->query('SELECT sMaKhoa, sTenKhoa FROM tbl_khoa WHERE sMaKhoa = '.getSession()->sMaKhoa)->result_array(),
-            'MonThi'   => $this->db->get('tbl_monthi')->result_array()
+            'listkhoa' => $listKhoa,
+            'MonThi'   => $monthi
         );
         $page = array(
             'title' => 'Danh sách thí sinh',
@@ -61,19 +62,22 @@ class Clist extends CI_Controller{
     {
         $khoa = getSession()->sMaKhoa;
         $today = date("d/m/Y");
-        $sql = "SELECT tbl_thisinh.sMaSinhVien,tbl_thisinh.sHoTenDem,tbl_thisinh.sTen,tbl_thisinh.sGhiChu,tbl_thisinh.sTruong,tbl_monthi.sTenMon,tbl_monthi.sMaMon,tbl_khoa.sMaKhoa,tbl_khoa.sTenKhoa 
-        FROM tbl_thisinh, tbl_khoa, tbl_monthi 
-        WHERE tbl_thisinh.FK_sMaKhoa = tbl_khoa.sMaKhoa 
-        and tbl_thisinh.sMaMon = tbl_monthi.sMaMon
-        and tbl_thisinh.sNamThi =".substr($today,6,4);
-        if(!empty($mon)){
-            $sql .=" AND tbl_monthi.sMaMon='$mon'";
-        }
-        if($khoa != '13'){
-            $sql .=" AND tbl_khoa.sMaKhoa='$khoa'";
-        }
-        $sql .= " ORDER by tbl_thisinh.sMaMon ASC, tbl_thisinh.sGhiChu ASC, tbl_thisinh.sTen ASC, tbl_khoa.sTenKhoa ASC";
-        return $this->db->query($sql)->result_array();
+        // $sql = "SELECT tbl_thisinh.sMaSinhVien,tbl_thisinh.sHoTenDem,tbl_thisinh.sTen,tbl_thisinh.sGhiChu,tbl_thisinh.sTruong,tbl_monthi.sTenMon,tbl_monthi.sMaMon,tbl_khoa.sMaKhoa,tbl_khoa.sTenKhoa 
+        // FROM tbl_thisinh, tbl_khoa, tbl_monthi 
+        // WHERE tbl_thisinh.FK_sMaKhoa = tbl_khoa.sMaKhoa 
+        // and tbl_thisinh.sMaMon = tbl_monthi.sMaMon
+        // and tbl_thisinh.sNamThi =".substr($today,6,4);
+        // if(!empty($mon)){
+        //     $sql .=" AND tbl_monthi.sMaMon='$mon'";
+        // }
+        // if($khoa != '13'){
+        //     $sql .=" AND tbl_khoa.sMaKhoa='$khoa'";
+        // }
+        // $sql .= " ORDER by tbl_thisinh.sMaMon ASC, tbl_thisinh.sGhiChu ASC, tbl_thisinh.sTen ASC, tbl_khoa.sTenKhoa ASC";
+        // return $this->db->query($sql)->result_array();
+        $dataSinhVien = $this->Mthisinh->layDanhSachThiSinh($khoa,$mon);
+        pre($dataSinhVien);
+        return $dataSinhVien;
     }
     public function xuatexcel($post)
     {
