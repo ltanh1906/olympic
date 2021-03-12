@@ -25,7 +25,7 @@
             $config = array();
             $config['total_rows'] = $total_rows; //Tổng tất cả sản phẩm trên website
             $config['base_url'] = admin_url('Cbaiviet/index'); // link hiển thị ra danh sách sản phẩm
-            $config['per_page'] = 7; //Số lượng sản phẩm hiển thị trên 1 trang
+            $config['per_page'] = 10; //Số lượng sản phẩm hiển thị trên 1 trang
             $config['uri_segment'] = 4; //phân đoạn hiển thị ra số trang trên url;
             $config['next_link'] = "Next page";
             $config['prev_link'] = "Prev Page";

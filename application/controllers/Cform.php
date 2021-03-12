@@ -199,6 +199,7 @@ class Cform extends CI_Controller{
                     'sEmail'        => $mail,
                     'sGhiChu'         => $hinhthuc[0],
                     'sTruong'       => 'ĐH Mở Hà Nội',
+                    'sNamThi'       => date("Y"),
                 );
                 
                 if($this->Mthisinh->create($info))
@@ -312,8 +313,8 @@ class Cform extends CI_Controller{
                     'sGhiChu'         => $hinhthuc,
                     'sTruong'       => $truong,
                     'sMinhchung'    => $image_link,
+                    'sNamThi'       => date("Y"),
                 );
-                
                 if($this->Mduthi->create($info))
                     {
                         setToast('success', 'Đăng kí thành công');

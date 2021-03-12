@@ -76,7 +76,6 @@ class Clist extends CI_Controller{
         // $sql .= " ORDER by tbl_thisinh.sMaMon ASC, tbl_thisinh.sGhiChu ASC, tbl_thisinh.sTen ASC, tbl_khoa.sTenKhoa ASC";
         // return $this->db->query($sql)->result_array();
         $dataSinhVien = $this->Mthisinh->layDanhSachThiSinh($khoa,$mon);
-        pre($dataSinhVien);
         return $dataSinhVien;
     }
     public function xuatexcel($post)
@@ -133,7 +132,12 @@ class Clist extends CI_Controller{
                         $array_content['A'.$row] = $i;
                         $array_content['B'.$row] = $key+1;
                         $array_content['C'.$row] = $sv['sTruong'];
+                        if($sv['sMaKhoa'] != 14){
                         $array_content['D'.$row] = $sv['sTenKhoa'];
+                        }
+                        else{
+                        $array_content['D'.$row] = $sv['sKhoa'];
+                        }
                         $array_content['E'.$row] = $sv['sTenMon'];
                         $array_content['F'.$row] = $sv['sHoTenDem'];
                         $array_content['G'.$row] = $sv['sTen'];

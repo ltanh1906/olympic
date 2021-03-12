@@ -31,6 +31,7 @@ class Cbaiviet extends CI_Controller{
                 case 4: $link_dm = 'ontap'; break;
                 case 5: $link_dm = 'video'; break;
                 case 6: $link_dm = 'dvdangcai'; break;
+                case 8: $link_dm = 'danhsach'; break;
             }
             $dLeft = array(
                 'thongbao'  => $thongbao,
